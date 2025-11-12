@@ -1,0 +1,149 @@
+* {
+  font-size: 16px;
+  font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+  margin: 0;
+  background: #f3efe5;
+  color: #333;
+}
+
+header,
+main {
+  width: calc(100% - 32px);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto 16px;
+}
+
+.gameControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.title {
+  margin: 0;
+  font-size: 45px;
+  font-weight: 700;
+  color: #463C32;
+}
+
+.scoreArea {
+  background: #E6E0D4;
+  font-weight: 600;
+  font-size: 14px;
+  color: #887561;
+  padding: 8px 30px;
+  border-radius: 12px;
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.score {
+  font-weight: 700;
+  font-size: 18px;
+  color: #463C32;
+}
+
+.gameControls .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gameControls .buttons button {
+  font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.restartBtn {
+  padding: 8px 12px;
+  background-color: #463C32;
+  color: white;
+  border-radius: 10px;
+}
+
+.leaderBtn {
+  color: #463C32;
+  background: none;
+}
+
+.mobileControls {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.mobileControls button {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  border: none;
+  background: #E6E0D4;
+  font-size: 20px
+}
+
+.mobileControls .up {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.mobileControls .left,
+.mobileControls .down,
+.mobileControls .right {
+  grid-row: 2;
+}
+
+.mobileControls .left {
+  grid-column: 1;
+}
+
+.mobileControls .down {
+  grid-column: 2;
+}
+
+.mobileControls .right {
+  grid-column: 3;
+}
+
+.moveControls button {
+  margin-top: 30px;
+  font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 600;
+  font-size: 18px;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #463C32;
+  background: #E6E0D4;
+}
+
+.grid {
+  width: 450px;
+  height: 450px;
+  background: #E6E0D4;
+  margin: 0 auto;
+  border-radius: 20px;
+}
