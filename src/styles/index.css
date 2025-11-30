@@ -150,7 +150,7 @@ header {
 }
 
 .gameOverModal {
-  display: block;
+  display: none;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -232,4 +232,33 @@ header {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .grid {
+    width: calc(80vw - 32px);
+    height: calc(80vw - 32px);
+    aspect-ratio: 1 / 1;
+  }
+
+  .grid div {
+    width: calc(25% - 6px);
+    height: calc(25% - 6px);
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-sizing: border-box;
+  }
+
+  .grid div {
+    font-size: 1rem;
+  }
 }
