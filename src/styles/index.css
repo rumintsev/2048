@@ -141,9 +141,95 @@ header {
 }
 
 .grid {
-  width: 450px;
-  height: 450px;
+  width: 440px;
+  height: 440px;
   background: #E6E0D4;
   margin: 0 auto;
   border-radius: 20px;
+  padding: 5px;
+}
+
+.gameOverModal {
+  display: block;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border: 2px solid #463C32;
+  border-radius: 20px;
+}
+
+.gameOverModal p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px 0;
+}
+
+.gameOverModal input {
+  border: 2px solid #463C32;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.gameOverModal button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #463C32;
+  color: white;
+  font-weight: 500;
+}
+
+.leadersBlock {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border: 2px solid #463C32;
+  border-radius: 20px;
+}
+
+.leadersBlock h3 {
+  margin-top: 0;
+}
+
+.leadersBlock button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  background-color: #463C32;
+  color: white;
+  font-weight: 500;
+}
+
+.grid div {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 5px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  background: #cdc1b4;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
