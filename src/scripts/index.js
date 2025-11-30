@@ -150,6 +150,10 @@ function showGameOver() {
   modal.style.display = 'block';
   nickInput.value = '';
   saveBtn.disabled = true;
+  gameOverMsg.textContent = 'Игра окончена! Введите ник:';
+  nickInput.style.display = 'block';
+  saveBtn.style.display = 'inline';
+  newGameBtn.style.display = 'inline';
 }
 
 nickInput.oninput = () => {
@@ -166,10 +170,29 @@ saveBtn.onclick = () => {
     date: new Date().toLocaleString()
   };
 
-  const records = JSON.parse(localStorage.getItem('leaders2048') || '[]');
-  records.push(record);
-  records.sort((a, b) => b.score - a.score);
+  let records = JSON.parse(localStorage.getItem('leaders2048') || '[]');
 
+  if (records.length < 10) {
+    records.push(record);
+  } else {
+    const minScore = Math.min(...records.map(r => r.score));
+    if (score > minScore) {
+      const minIndex = records.findIndex(r => r.score === minScore);
+      records[minIndex] = record;
+    } else {
+      gameOverMsg.textContent = 'Ваш рекорд не вошёл в топ-10';
+      nickInput.style.display = 'none';
+      saveBtn.style.display = 'none';
+      newGameBtn.style.display = 'none';
+      setTimeout(() => {
+        modal.style.display = 'none';
+        initGrid();
+      }, 1500);
+      return;
+    }
+  }
+
+  records.sort((a, b) => b.score - a.score);
   localStorage.setItem('leaders2048', JSON.stringify(records.slice(0, 10)));
 
   gameOverMsg.textContent = 'Ваш рекорд сохранён!';
@@ -258,11 +281,11 @@ leaderBtn.onclick = renderLeaders;
 backBtn.onclick = undo;
 forwardBtn.onclick = redo;
 
-if (!grid.length) {
-  initGrid();
-} else if (isGameOver()) {
-  initGrid();
-} else {
+loadState();
+
+if (grid.length && !isGameOver()) {
   drawGrid();
   updateButtons();
+} else {
+  initGrid();
 }
