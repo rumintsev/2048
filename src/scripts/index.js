@@ -200,10 +200,17 @@ function renderLeaders() {
   title.textContent = 'Рекорды:';
   leadersBlock.appendChild(title);
 
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = 'Закрыть';
+  closeBtn.addEventListener('click', () => {
+    leadersBlock.style.display = 'none';
+  });
+
   if (!records.length) {
     const p = document.createElement('p');
     p.textContent = 'Рекордов пока нет';
     leadersBlock.appendChild(p);
+    leadersBlock.appendChild(closeBtn);
     return;
   }
 
@@ -213,11 +220,6 @@ function renderLeaders() {
     leadersBlock.appendChild(line);
   });
 
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = 'Закрыть';
-  closeBtn.addEventListener('click', () => {
-    leadersBlock.style.display = 'none';
-  });
   leadersBlock.appendChild(closeBtn);
 }
 
